@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import Axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
-
+import { withRouter } from 'react-router-dom';
 function LoginPage(props) {
-
     const dispatch = useDispatch();
 
     const [Email, setEmail] = useState("")
@@ -12,6 +12,7 @@ function LoginPage(props) {
     const onEmailHandler = (event) => {
         setEmail(event.currentTarget.value)
     }
+
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value)
     }
@@ -32,7 +33,10 @@ function LoginPage(props) {
                     alert('Error˝')
                 }
             })
+
+
     }
+
 
     return (
         <div style={{
@@ -55,4 +59,4 @@ function LoginPage(props) {
     )
 }
 
-export default LoginPage
+export default withRouter(LoginPage)
